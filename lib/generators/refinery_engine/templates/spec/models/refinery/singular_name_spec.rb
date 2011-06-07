@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe <%= class_name %> do
+describe ::Refinery::<%= class_name %> do
 
   def reset_<%= singular_name %>(options = {})
     @valid_attributes = {

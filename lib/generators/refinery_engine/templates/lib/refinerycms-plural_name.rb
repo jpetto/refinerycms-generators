@@ -10,8 +10,9 @@ module Refinery
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "<%= class_name.pluralize.underscore.downcase %>"
+          plugin.url = '/refinery/<%= plural_name %>'
           plugin.activity = {
-            :class => <%= class_name %><% if (title = attributes.detect { |a| a.type.to_s == "string" }).present? and title.name != 'title' %>,
+            :class => ::Refinery::<%= class_name %><% if (title = attributes.detect { |a| a.type.to_s == "string" }).present? and title.name != 'title' %>,
             :title => '<%= title.name %>'<% end %>
           }
         end
