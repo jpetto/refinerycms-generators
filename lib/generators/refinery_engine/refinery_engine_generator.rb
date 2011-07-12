@@ -79,7 +79,7 @@ class RefineryEngineGenerator < Rails::Generators::NamedBase
         end
 
         if File.exist?(lib_file = engine_path_for(File.expand_path("../templates/lib/refinerycms-#{engine.pluralize}.rb", __FILE__), engine))
-          append_file lib_file, "require File.expand_path('../refinerycms-#{plural_name}', __FILE__)"
+          append_file lib_file, "\nrequire File.expand_path('../refinerycms-#{plural_name}', __FILE__)"
         end
 
         tmp_directories.uniq.each{|d| d.rmtree unless d.nil? or !d.exist?}
