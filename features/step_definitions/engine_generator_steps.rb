@@ -1,4 +1,4 @@
-require File.expand_path("../../../lib/generators/refinery_engine/refinery_engine_generator", __FILE__)
+require File.expand_path("../../../lib/generators/refinery/engine/engine_generator", __FILE__)
 
 Before do
   @engine_generator_root  = File.expand_path('../../../', __FILE__)

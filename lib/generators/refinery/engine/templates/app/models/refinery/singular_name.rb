@@ -6,7 +6,7 @@ module Refinery
     validates <%= string_attributes.first.inspect %>, :presence => true, :uniqueness => true
     <% else %>
     # def title was created automatically because you didn't specify a string field
-    # when you ran the refinery_engine generator. Love, Refinery CMS.
+    # when you ran the refinery:engine generator. <3 <3 Refinery CMS.
     def title
       "Override def title in vendor/engines/<%= plural_name %>/app/models/<%= singular_name %>.rb"
     end

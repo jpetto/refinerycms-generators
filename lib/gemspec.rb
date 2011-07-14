@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.version           = %q{#{version}}
   s.date              = %q{#{Time.now.strftime('%Y-%m-%d')}}
   s.summary           = %q{Core generators for the Refinery CMS project.}
-  s.description       = %q{Core generators for Refinery CMS including refinery_engine.}
+  s.description       = %q{Core generators for Refinery CMS including refinery:engine.}
   s.homepage          = %q{http://refinerycms.com}
   s.email             = %q{info@refinerycms.com}
   s.authors           = ["Resolve Digital"]
