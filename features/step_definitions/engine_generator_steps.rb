@@ -13,7 +13,7 @@ After do
 end
 
 When /^I generate an engine with the arguments of "([^\"]*)"$/ do |arguments|
-  generator = RefineryEngineGenerator.new(arguments.split(" "))
+  generator = ::Refinery::EngineGenerator.new(arguments.split(" "))
   generator.destination_root = @app_root
   generator.options = {:quiet => true}
   generator.generate
