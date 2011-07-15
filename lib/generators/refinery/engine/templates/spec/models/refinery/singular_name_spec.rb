@@ -22,7 +22,7 @@ describe ::Refinery::<%= class_name %> do
       <%= class_name %>.new(@valid_attributes.merge(:<%= title.name %> => "")).should_not be_valid
     end
 
-    it "rejects non unique <%= title.name %>" do
+    it "rejects duplicate <%= title.name %>" do
       # as one gets created before each spec by reset_<%= singular_name %>
       <%= class_name %>.new(@valid_attributes).should_not be_valid
     end
