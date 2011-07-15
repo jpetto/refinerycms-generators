@@ -3,7 +3,7 @@ require 'yaml'
 require 'pathname'
 
 module ::Refinery
-  class EngineGenerator < Rails::Generators::NamedBase
+  class EngineGenerator < ::Rails::Generators::NamedBase
 
     include Rails::Generators::Migration
 
