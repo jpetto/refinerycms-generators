@@ -3,11 +3,20 @@ require File.expand_path('../refinery/generators', __FILE__)
 
 module Refinery
   module Generators
+    
+    class << self
+      attr_accessor :root
+      def root
+        @root ||= Pathname.new(File.expand_path('../../', __FILE__))
+      end
+    end
+    
     class Engine < Rails::Engine
       config.after_initialize do
         ::Refinery::Plugin.register do |plugin|
           plugin.name = "refinery_generators"
           plugin.hide_from_menu = true
+          plugin.pathname = root
         end
       end
     end
