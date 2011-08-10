@@ -7,4 +7,6 @@ Gem::Specification.new do |s|
   s.summary           = '<%= plural_name.titleize %> engine for Refinery CMS'
   s.require_paths     = %w(lib)
   s.files             = Dir['lib/**/*', 'config/**/*', 'app/**/*']
+  
+  s.add_developer_dependency 'refinerycms-testing', '~. 1.0.0'
 end
