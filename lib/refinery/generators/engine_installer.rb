@@ -38,8 +38,8 @@ module Refinery
       end
       
       def initialize(args = [], options = {}, config = {})
-        super
-        self.destination_root = config[:destination_root] || Rails.root.to_s
+        config[:destination_root] = config[:destination_root] || Rails.root.to_s
+        super(args, options, config)
       end
 
       def generate
