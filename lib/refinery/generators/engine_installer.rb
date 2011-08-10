@@ -36,20 +36,26 @@ module Refinery
           ::ActiveRecord::Generators::Base.next_migration_number(dirname)
         end
       end
+      
+      def initialize(args = [], options = {}, config = {})
+        super
+        self.destination_root = config[:destination_root] || Rails.root.to_s
+      end
 
       def generate
+        destination_path = Pathname.new(destination_root)
         Pathname.glob(self.class.source_root.join('db', '**', '*.rb')).sort.each do |path|
           case path.to_s
           when %r{.*/migrate/.*}
             # unless the migration has already been generated.
             migration_name = "#{path.split.last.to_s.split(/^\d+_/).last}"
-            unless Dir[Rails.root.join('db', 'migrate', "*#{migration_name}")].any?
-              migration_template path, Rails.root.join('db', 'migrate', migration_name)
+            unless Dir[destination_path.join('db', 'migrate', "*#{migration_name}")].any?
+              migration_template path,destination_path.join('db', 'migrate', migration_name)
             else
               puts "You already have a migration called #{migration_name.split('.rb').first}" unless self.silence_puts || self.behavior == :revoke
             end
           when %r{.*/seeds/.*}
-            template path, Rails.root.join('db', 'seeds', path.to_s.split('/seeds/').last)
+            template path, destination_path.join('db', 'seeds', path.to_s.split('/seeds/').last)
           end
         end
 
