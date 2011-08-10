@@ -43,7 +43,6 @@ module Refinery
       end
 
       def generate
-        destination_path = Pathname.new(destination_root)
         Pathname.glob(self.class.source_root.join('db', '**', '*.rb')).sort.each do |path|
           case path.to_s
           when %r{.*/migrate/.*}
@@ -70,6 +69,13 @@ module Refinery
           })
         end
       end
+      
+      protected
+      
+        # Helper method to quickly convert destination_root to a Pathname for easy file path manipulation
+        def destination_path
+          @destination_path ||= Pathname.new(self.destination_root)
+        end
     end
   end
 end
