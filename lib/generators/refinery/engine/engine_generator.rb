@@ -85,9 +85,11 @@ module ::Refinery
 
           tmp_directories.uniq.each{|d| d.rmtree unless d.nil? or !d.exist?}
         end
-        
-        require 'generators/testing_generator'
-        TestingGenerator.new([], {}, :destination_root => Rails.root.join('vendor', 'engines', plural_name)).generate
+
+        if defined? Refinery::Testing
+          require 'generators/testing_generator'
+          TestingGenerator.new([], {}, :destination_root => Rails.root.join('vendor', 'engines', plural_name)).generate
+        end
 
         # Update the gem file
         if self.behavior != :revoke and !self.options['pretend']
