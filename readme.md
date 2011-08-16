@@ -6,6 +6,9 @@ This version is targeted at RefineryCMS versions 1.0.0 and higher. Before that,
 these were built in but we've extracted them to provide greater flexibility for
 all future versions.
 
+As of Refinery CMS version 2.0.0 these generators will be merged back into the 
+core package of Refinery CMS at https://github.com/resolve/refinerycms
+
 ## Engine Generator
 
 The Refinery generator is a standard Rails generator that functions just like the
